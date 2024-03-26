@@ -19,6 +19,7 @@ import {
 	Final,
 	Result
 } from './panels'
+import { constants } from './utils/constants'
 
 const App = (props) => {
 	const url = 'https://dendonora2020.donorsearch.org/backendD'
@@ -26,8 +27,8 @@ const App = (props) => {
 	const [snackbar, setSnackbar] = useState(null)
 	const [activePanel, setActivePanel] = useState('loading')
 	const [history, setHistory] = useState(['final'])
-	const [fetchedUser, setUser] = useState(null)
-	const [infoUser, setInfoUser] = useState(null)
+	const [fetchedUser, setUser] = useState(constants.myUserInfo) // hardcode
+	const [infoUser, setInfoUser] = useState({"first":true,"data":null}) // hardcode
 	const [popout, setPopout] = useState(null)
 	const [activeModal, setActiveModal] = useState(null)
 
@@ -71,17 +72,18 @@ const App = (props) => {
 			setActivePanel(active)
 		}, false);
 
-		(async () => {
-			const user = await bridge.send('VKWebAppGetUserInfo')
-			await setUser(user)
-			const params = '?' + 'action=login' + '&id_vk=' + user.id
-			axios.get(url + '/API/index.php' + params).then((res) => {
-				setInfoUser(res.data.data)
-				if (res.data.first) {
+		( () => {
+			// const user = await bridge.send('VKWebAppGetUserInfo')
+			setUser(constants.myUserInfo) // hardcode
+			console.log(fetchedUser);
+			const params = '?' + 'action=login' + '&id_vk=' + fetchedUser.id // hardcode
+			// axios.get(url + '/API/index.php' + params).then((res) => {
+				setInfoUser({"first":true,"data":null}) // hardcode
+				if (infoUser.first) { // hardcode
 					setActivePanel('start_1')
 				} else {
 					var leng = 0
-					for (var s in res.data.data.info.answer) {
+					for (/*var s in res.data.data.info.answer*/let i = 0; i < 10; i++) {
 						leng++
 					}
 					if (leng < 10) {
@@ -90,7 +92,7 @@ const App = (props) => {
 						setActivePanel('final')
 					}
 				}
-			})
+			// })
 		})()
 	}, [])
 

@@ -12,17 +12,18 @@ import leftImg from '../../img/left.png'
 import rightImg from '../../img/right.png'
 import a_q from '../Q&A.json'
 import { SwipeCard } from '../../component'
+import { constants } from '../../utils/constants'
 
 const Home = (props) => {
 	const [card, setCard] = useState(null)
-	let infoUser = null
+	let infoUser = constants.myUserInfo //hardcode
 	let indexA = 0
 	let randomQ = null
 	let answer = {}
 
 	useEffect(() => {
 		// console.log('fetchedUser', props.fetchedUser)
-		if (props.infoUser === null) {
+		if (props.infoUser.data === null) { // added .data
 			let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 			arr.sort(() => Math.random() - 0.5)
 			randomQ = arr
@@ -105,7 +106,7 @@ const Home = (props) => {
 			randomQ: randomQ,
 			answer: answer
 		}
-		const params = '?' + 'action=checkQuestion' + '&id=' + infoUser.id + '&info=' + encodeURI(JSON.stringify(obj)) + '&answer_q=' + b + '&id_q=' + i
+		const params = '?' + 'action=checkQuestion' + '&id=' + constants.myUserInfo.id /*hardcode*/ + '&info=' + encodeURI(JSON.stringify(obj)) + '&answer_q=' + b + '&id_q=' + i
 		axios.get(props.url + '/API/index.php' + params).then((res) => {
 			console.log('res checkQuestion', res.data)
 
