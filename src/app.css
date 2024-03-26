@@ -1,0 +1,35 @@
+/* .Panel__in {
+  background-image: url('./img/main-bg.png');
+  background-size: cover;
+} */
+
+body {
+  --background_content: #E50D22!important;
+  --header_background: #E50D22!important;
+  --header_alternate_background: #E50D22!important;
+}
+
+@media only screen and (min-width : 320px) and (max-width : 359px) {
+  body {
+    --font_title: 22px;
+    --font_text: 14px;
+    --font_text_q: 16px;
+    --font_button: 14px;
+  }
+}
+@media only screen and (min-width : 360px) and (max-width : 399px) {
+  body {
+    --font_title: 26px;
+    --font_text: 18px;
+    --font_text_q: 20px;
+    --font_button: 18px;
+  }
+}
+@media only screen and (min-width : 400px) {
+  body {
+    --font_title: 30px;
+    --font_text: 22px;
+    --font_text_q: 24px;
+    --font_button: 22px;
+  }
+}

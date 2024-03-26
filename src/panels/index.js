@@ -1,0 +1,5 @@
+export { default as Home } from './Home'
+export { default as Loader } from './Loader'
+export { default as Start_1 } from './Start_1'
+export { default as Final } from './Final'
+export { default as Result } from './Result'

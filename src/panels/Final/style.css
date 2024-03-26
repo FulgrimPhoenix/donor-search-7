@@ -1,0 +1,158 @@
+.centerF {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card_final {
+  height: calc(75vh - var(--safe-area-inset-top) - var(--safe-area-inset-bottom));
+}
+
+.final_title {
+  font-weight: bold;
+  font-size: var(--font_title);
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  margin-top: 10%;
+}
+
+.final_text {
+  /* font-weight: bold; */
+  font-size: var(--font_text);
+  line-height: 26px;
+  text-align: center;
+  color: white;
+  margin-top: 2%;
+}
+
+.avatar_block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10%
+}
+
+.avatar {
+  width: 146.04px;
+  height: 146.04px;
+  border-radius: 73.02px;
+  margin-top: 5%;
+}
+
+.avatar_sec {
+  position: absolute;
+  width: 120%;
+  top: 60%;
+  left: 5%;
+}
+
+.final_button {
+  background: white;
+  color: black;
+  width: 70%;
+  height: 42px;
+  margin-top: 7%;
+}
+
+.disable {
+  display: none;
+}
+
+.cards_block {
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: calc(var(--safe-area-inset-bottom) + 5%);
+}
+
+.cardtostories {
+  width: 400px;
+  height: 800px;
+  position: fixed;
+  background: #E50D22;
+  top: 0;
+  left: 10000px;
+}
+
+.my_result_stories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.final_button_card_block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.final_button_card {
+  background: #E50D22;
+  color: white;
+  width: 70%;
+  height: 42px;
+  margin-top: 7%;
+}
+
+.true_answer {
+  font-weight: bold;
+  font-size: var(--font_title);
+  line-height: 26px;
+}
+
+.result_card_block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result_card_title {
+  font-weight: bold;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: var(--font_text);
+}
+
+.indecator_block {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.indecator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3.5%;
+  padding-bottom: 3.5%;
+  color: white;
+  font-size: var(--font_text);
+  line-height: 26px;
+}
+
+.indecator_r {
+  background-color: #FF525E;
+  border-radius: 0 10px 10px 0;
+  flex: 1;
+}
+
+.indecator_l {
+  background-color: #2ACA53;
+  border-radius: 10px 0 0 10px;
+}
+
+.patrners_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 8%;
+}
+
+.patrners_block img {
+  width: 100%;
+}

@@ -1,0 +1,139 @@
+#home {
+  overflow: hidden;
+}
+
+.Cards {
+  height: 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.blueBackground {
+  background-color: var(--accent);
+  border-radius: 12px;
+}
+.lits_menu {
+  background: var(--background_content);
+}
+.lits_menu:last-child {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.lits_menu:first-child {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.card {
+  background: white;
+  width: 100%;
+  height: calc(85vh - var(--safe-area-inset-top) - var(--safe-area-inset-bottom));
+  margin-top: 2.5vh;
+  box-shadow: 0px 0px 20px rgba(135, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card_text {
+  font-size: var(--font_text);
+  line-height: 26px;
+}
+
+.card_button {
+  background: #6E59AD;
+  color: white;
+  width: 80%;
+  height: 42px;
+}
+
+.swipe_img {
+  width: 24%;
+}
+
+.left {
+  margin-right: 2.5%;
+  background: #E50D22;
+}
+
+.right {
+  margin-left: 2.5%;
+  background: #2ACA53;
+}
+
+.avas_block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5%;
+  width: 100%;
+}
+
+.avas_title {
+  font-size: var(--font_text);
+  margin-bottom: 2%;
+}
+
+.avas_img_block {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5%;
+  width: 85%;
+}
+
+.avas {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.card_top { 
+  width: 90%;
+}
+
+.card_top, .card_mid, .card_bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.padding_5 {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.card_index {
+  font-size: var(--font_text);
+  line-height: 26px;
+  color: #E50D22;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+.card_img {
+  width: 70%;
+}
+
+.card_question {
+  font-size: var(--font_text_q);
+  line-height: 26px;
+  text-align: center;
+}
+
+.card_block {
+  display: flex;
+  width: 90%;
+}
+
+.card_title_answer {
+  font-size: var(--font_title);
+  line-height: 26px;
+  color: #E50D22;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5%;
+}
