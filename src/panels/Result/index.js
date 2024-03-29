@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import Panel from '@vkontakte/vkui/dist/components/Panel/Panel'
-import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader'
 import {
 	Div,
 	Button,
 	Avatar,
-	PanelHeaderButton
+	PanelHeaderButton,
+	Panel,
+	PanelHeader
 } from '@vkontakte/vkui'
-import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back'
-import Icon24Back from '@vkontakte/icons/dist/24/back'
-import { platform, IOS } from '@vkontakte/vkui'
+
+import { platform } from '@vkontakte/vkui'
 import './style.css'
+import { Icon24Back, Icon28ChevronBack } from '@vkontakte/icons';
 
 const osName = platform();
 
@@ -46,7 +46,7 @@ const Result = props => {
 			<PanelHeader
 				left={
 					<PanelHeaderButton onClick={props.goBack}>
-						{osName === IOS ? <Icon28ChevronBack style={{ color: 'white' }} /> : <Icon24Back style={{ color: 'white' }} />}
+						{osName === 'IOS' ? <Icon28ChevronBack style={{ color: 'white' }} /> : <Icon24Back style={{ color: 'white' }} />}
 					</PanelHeaderButton>
 				}
 			>

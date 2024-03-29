@@ -5,9 +5,10 @@ import {
 	Button,
 	Avatar,
 	Panel,
-	PanelHeader
+	PanelHeader,
+	ScreenSpinner
 } from '@vkontakte/vkui'
-import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner'
+// import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner'
 import rasterizehtml from 'rasterizehtml'
 import axios from 'axios'
 import './style.css'

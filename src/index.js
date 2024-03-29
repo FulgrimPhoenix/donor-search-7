@@ -1,12 +1,11 @@
-import "core-js/features/map";
-import "core-js/features/set";
 import React from "react";
-import ReactDOM from "react-dom";
-import bridge from "@vkontakte/vk-bridge";
+import ReactDOM from "react-dom/client";
 import App from "./App";
-import { AdaptivityProvider, ConfigProvider } from "@vkontakte/vkui";
+import vkBridge from "@vkontakte/vk-bridge";
+import { ConfigProvider, AdaptivityProvider, AppRoot } from "@vkontakte/vkui";
+import "./app.css";
 
-bridge.send("VKWebAppInit");
+vkBridge.send("VKWebAppInit");
 
 const container = document.getElementById("root");
 
@@ -14,9 +13,11 @@ const root = ReactDOM.createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <ConfigProvider appearance="dark">
+    <ConfigProvider>
       <AdaptivityProvider>
-        <App />
+        <AppRoot>
+          <App />
+        </AppRoot>
       </AdaptivityProvider>
     </ConfigProvider>
   </React.StrictMode>

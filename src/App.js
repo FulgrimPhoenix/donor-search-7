@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import bridge from '@vkontakte/vk-bridge'
-import View from '@vkontakte/vkui/dist/components/View/View'
-import ConfigProvider from '@vkontakte/vkui/dist/components/ConfigProvider/ConfigProvider'
+// import View from '@vkontakte/vkui/dist/components/View/View'
 import '@vkontakte/vkui/dist/vkui.css'
 import axios from 'axios'
-import ModalPage from '@vkontakte/vkui/dist/components/ModalPage/ModalPage'
-import ModalRoot from '@vkontakte/vkui/dist/components/ModalRoot/ModalRoot'
-import Icon28CancelCircleOutline from '@vkontakte/icons/dist/28/cancel_circle_outline'
-import Icon28SmileOutline from '@vkontakte/icons/dist/28/smile_outline';
-import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar'
-import Snackbar from '@vkontakte/vkui/dist/components/Snackbar/Snackbar'
+// import ModalPage from '@vkontakte/vkui/dist/components/ModalPage/ModalPage'
+// import ModalRoot from '@vkontakte/vkui/dist/components/ModalRoot/ModalRoot'
+// import Icon28CancelCircleOutline from '@vkontakte/icons/dist/28/cancel_circle_outline'
+// import Icon28SmileOutline from '@vkontakte/icons/dist/28/smile_outline';
+// import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar'
+// import Snackbar from '@vkontakte/vkui/dist/components/Snackbar/Snackbar'
 import './app.css'
 
 import {
@@ -20,6 +19,8 @@ import {
 	Result
 } from './panels'
 import { constants } from './utils/constants'
+import { Avatar, ModalPage, ModalRoot, Snackbar, View } from '@vkontakte/vkui'
+import { Icon28CancelCircleOutline, Icon28SmileOutline } from '@vkontakte/icons'
 
 const App = (props) => {
 	const url = 'https://dendonora2020.donorsearch.org/backendD'
@@ -164,7 +165,6 @@ const App = (props) => {
 	)
 
 	return (
-		<ConfigProvider>
 			<View
 				activePanel={activePanel}
 				history={history}
@@ -187,9 +187,6 @@ const App = (props) => {
 					{...propsPanels}
 				/>
 			</View>
-			{snackbar}
-		</ConfigProvider>
-
 	);
 }
 
