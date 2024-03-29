@@ -17,7 +17,7 @@
   font-size: var(--font_text);
   line-height: 26px;
   text-align: center;
-  margin-bottom: 10%;
+  margin-bottom: 100px;
   color: white;
 }
 .start_step {
@@ -45,11 +45,10 @@
 }
 
 .donorLogo {
-  width: 40%;
-  margin-bottom: 15%;
+
 }
 
 .puslLogo {
-  width: 110%;
+  width: 50%;
   margin-bottom: 10%;
 }

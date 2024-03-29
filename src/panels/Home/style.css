@@ -28,7 +28,7 @@
 .card {
   background: white;
   width: 100%;
-  height: calc(85vh - var(--safe-area-inset-top) - var(--safe-area-inset-bottom));
+  height: 80vh;
   margin-top: 2.5vh;
   box-shadow: 0px 0px 20px rgba(135, 0, 0, 0.25);
   border-radius: 10px;
@@ -51,7 +51,7 @@
 }
 
 .swipe_img {
-  width: 24%;
+  width: 12%;
 }
 
 .left {
@@ -115,7 +115,7 @@
 }
 
 .card_img {
-  width: 70%;
+  width: 40%;
 }
 
 .card_question {
