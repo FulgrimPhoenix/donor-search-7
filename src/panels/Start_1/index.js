@@ -10,24 +10,28 @@ import {
 } from "@vkontakte/vkui";
 import donorLogo from "../../img/DonorSearch.png";
 import puls from "../../img/puls.png";
+import { constants } from "../../utils/constants";
 
 const Home = (props) => {
   return (
     <SplitLayout>
-      <SplitCol >
+      <SplitCol>
         <Panel separator={false} id={props.id} className="start1">
-          <img className="start1__logo" src={donorLogo} alt="donor Logo" />
-          <div className="start_top">
-            <img className="start1__pulsLogo" src={puls} alt="donor Logo" />
-            <span className="start1__text" style={{ marginBottom: 0 }}>
-              15 августа пройдёт первый фестиваль донорского движения
-              "Пульсация" в Казани.
-            </span>
+          <img
+            className="start1__logo"
+            src={constants.start1.logo}
+            alt="donor Logo"
+          />
+          <img
+            className="start1__pulsLogo"
+            src={constants.start1.mainPicture}
+            alt="donor Logo"
+          />
+          <div className="start1__text-block">
+            {constants.start1.paragraphs.map((paragraph) => {
+              return <span className="start1__text">{paragraph}</span>;
+            })}
           </div>
-          <span className="start1__text">
-            Вокруг донорства существует множество мифов - давай узнаем, сможешь
-            ли ты их разоблачить?"
-          </span>
           <Button
             className="start_button"
             onClick={() => {
