@@ -4,6 +4,7 @@ import App from "./App";
 import vkBridge from "@vkontakte/vk-bridge";
 import { ConfigProvider, AdaptivityProvider, AppRoot } from "@vkontakte/vkui";
 import "./app.css";
+import "./myCustomThemeTokens.css";
 
 vkBridge.send("VKWebAppInit");
 
@@ -13,7 +14,12 @@ const root = ReactDOM.createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <ConfigProvider>
+    <ConfigProvider
+      tokensClassNames={{
+        light: "myCustomThemeTokens--red",
+        dark: "myCustomThemeTokens--red",
+      }}
+    >
       <AdaptivityProvider>
         <AppRoot>
           <App />

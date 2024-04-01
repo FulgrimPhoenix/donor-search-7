@@ -12,7 +12,7 @@ import donorLogo from "../../img/DonorSearch.png";
 import puls from "../../img/puls.png";
 import { constants } from "../../utils/constants";
 
-const Home = (props) => {
+const Manual = (props) => {
   return (
     <SplitLayout>
       <SplitCol>
@@ -35,7 +35,7 @@ const Home = (props) => {
           <Button
             className="start_button"
             onClick={() => {
-              props.setActivePanel("home");
+              props.setActivePanel("manual");
             }}
           >
             Начать
@@ -46,4 +46,4 @@ const Home = (props) => {
   );
 };
 
-export default Home;
+export default Manual;
