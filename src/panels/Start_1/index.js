@@ -16,7 +16,7 @@ const Manual = (props) => {
   return (
     <SplitLayout>
       <SplitCol>
-        <Panel separator={false} id={props.id} className="start1">
+        <Panel separator="false" id={props.id} className="start1">
           <img
             className="start1__logo"
             src={constants.start1.logo}

@@ -19,11 +19,17 @@
   margin: 0;
 }
 
+.card__counter{
+  margin: 30px auto 0;
+  color: #E50D22;
+  font-size:  var( --font_button);
+}
+
 .card__img {
   width: 50%;
   min-width: 250px;
-  max-width: 400px;
-  margin: 50px auto 0;
+  max-width: 350px;
+  margin: 30px auto 0;
 }
 
 .card__text {

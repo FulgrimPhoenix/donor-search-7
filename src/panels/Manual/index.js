@@ -6,7 +6,7 @@ import rightImg from "../../img/right.png";
 
 const Manual = (props) => {
   return (
-    <Panel id={props.id} className="manual" separator={false}>
+    <Panel id={props.id} className="manual" separator="false">
       <PanelHeader
         className="manual__header"
         delimiter="none"

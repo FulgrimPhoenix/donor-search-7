@@ -154,4 +154,10 @@ export const constants = {
       },
     ],
   },
+  cardResult: {
+    title: "День донора",
+    trueAnswerTitle: "Ты прав, это факт",
+    falseAnswerTitle: "Ой нет... это факт",
+    buttonText: "Дальше"
+  }
 };

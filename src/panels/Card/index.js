@@ -3,7 +3,7 @@ import { SwipeCard } from "../../component";
 import { constants } from "../../utils/constants";
 import { Div, Panel, PanelHeader } from "@vkontakte/vkui";
 import "./style.css";
-const Card = ({ id, cardData, currentCardNumder }) => {
+const Card = ({ id, cardData, setActivePanel, currentCardNumder }) => {
   return (
     <Panel id={id} className="card" separator={false}>
       <PanelHeader
@@ -15,7 +15,7 @@ const Card = ({ id, cardData, currentCardNumder }) => {
       </PanelHeader>
 
       <Div className="card__container">
-        <SwipeCard actionLeft={() => {console.log("no");}} actionRight={() => {console.log("yes");}}>
+        <SwipeCard actionLeft={() => {setActivePanel("card_result");}} actionRight={() => {setActivePanel("card_result");}}>
           <div className="card__content">
             <span className="card__counter">{`${currentCardNumder}/${constants.card.cardData.length}`}</span>
             <img
@@ -28,7 +28,7 @@ const Card = ({ id, cardData, currentCardNumder }) => {
               <button
                 className="card__button card__button_red"
                 onClick={() => {
-                  nextQuestion();
+                  setActivePanel("card_result");
                 }}
               >
                 {constants.card.buttonsText.false}
@@ -36,7 +36,7 @@ const Card = ({ id, cardData, currentCardNumder }) => {
               <button
                 className="card__button card__button_green"
                 onClick={() => {
-                  nextQuestion();
+                  setActivePanel("card_result");
                 }}
               >
                 {constants.card.buttonsText.true}
