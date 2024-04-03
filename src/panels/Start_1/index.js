@@ -12,11 +12,11 @@ import donorLogo from "../../img/DonorSearch.png";
 import puls from "../../img/puls.png";
 import { constants } from "../../utils/constants";
 
-const Manual = (props) => {
+const Start_1 = ({id, setActivePanel}) => {
   return (
-    <SplitLayout>
-      <SplitCol>
-        <Panel separator="false" id={props.id} className="start1">
+    // <SplitLayout>
+    //   <SplitCol>
+        <Panel separator="false" id={id} className="start1">
           <img
             className="start1__logo"
             src={constants.start1.logo}
@@ -35,15 +35,15 @@ const Manual = (props) => {
           <Button
             className="start_button"
             onClick={() => {
-              props.setActivePanel("manual");
+              setActivePanel("manual");
             }}
           >
             Начать
           </Button>
         </Panel>
-      </SplitCol>
-    </SplitLayout>
+    //   </SplitCol>
+    // </SplitLayout>
   );
 };
 
-export default Manual;
+export default Start_1;

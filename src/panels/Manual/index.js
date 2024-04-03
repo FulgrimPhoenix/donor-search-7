@@ -4,9 +4,9 @@ import "./style.css";
 import leftImg from "../../img/left.png";
 import rightImg from "../../img/right.png";
 
-const Manual = (props) => {
+const Manual = ({id, setActivePanel}) => {
   return (
-    <Panel id={props.id} className="manual" separator="false">
+    <Panel id={id} className="manual" separator="false">
       <PanelHeader
         className="manual__header"
         delimiter="none"
@@ -32,7 +32,7 @@ const Manual = (props) => {
           <button
             className="manual__button"
             onClick={() => {
-              props.setActivePanel("card");
+              setActivePanel("card");
             }}
           >
             Понятно

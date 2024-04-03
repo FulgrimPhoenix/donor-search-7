@@ -3,6 +3,7 @@ import { SwipeCard } from "../../component";
 import { constants } from "../../utils/constants";
 import { Div, Panel, PanelHeader } from "@vkontakte/vkui";
 import "./style.css";
+import { api } from "../../utils/Api";
 const Card = ({ id, cardData, setActivePanel, currentCardNumder }) => {
   return (
     <Panel id={id} className="card" separator={false}>
@@ -28,6 +29,7 @@ const Card = ({ id, cardData, setActivePanel, currentCardNumder }) => {
               <button
                 className="card__button card__button_red"
                 onClick={() => {
+                  api.checkQuestion(1);
                   setActivePanel("card_result");
                 }}
               >
@@ -36,6 +38,7 @@ const Card = ({ id, cardData, setActivePanel, currentCardNumder }) => {
               <button
                 className="card__button card__button_green"
                 onClick={() => {
+                  api.checkQuestion(1);
                   setActivePanel("card_result");
                 }}
               >
