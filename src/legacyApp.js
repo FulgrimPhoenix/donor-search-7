@@ -107,9 +107,7 @@ function legacyApp() {
       return obj;
     };
 
-    const goBack = () => {
-      window.history.back();
-    };
+
 
     const goForward = (activePanelLocal, replace = false) => {
       const historyLocal = [...history];
