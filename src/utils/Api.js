@@ -14,8 +14,8 @@ class Api {
     return fetch(url, options).then(this._checkResponse.bind(api));
   }
 
-  checkQuestion(questionNumber){
-    return this._request(this._apiUrl + `action=checkQuestion&id_q=${questionNumber}`)
+  checkQuestion(questionNumber, answer){
+    return this._request(this._apiUrl + `action=checkQuestion&answer_q=${answer}&id_q=${questionNumber}`)
   }
 }
 

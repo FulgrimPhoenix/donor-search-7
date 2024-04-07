@@ -5,10 +5,12 @@ import "./style.css";
 const CardResult = ({
   id,
   answer,
-  cardData,
+  staticPanelData,
   setActivePanel,
   currentCardNumder,
 }) => {
+  const staticData = constants.cardResult;
+
   return (
     <Panel id={id} className="card-result" separator={false}>
       <PanelHeader
@@ -16,35 +18,47 @@ const CardResult = ({
         delimiter="none"
         typographyProps={"div"}
       >
-        <h2 className="card-result__title">{constants.card.title}</h2>
+        <h2 className="card-result__title">{staticPanelData.title}</h2>
       </PanelHeader>
       <Div className="card-result__container">
         <SwipeCard
           actionLeft={() => {
-            setActivePanel('card');
+            setActivePanel("card");
           }}
           actionRight={() => {
-            setActivePanel('card');
+            setActivePanel("card");
           }}
         >
           <div className="card-result__content">
             <span
               className={`card-result__answer-title ${
-                answer.trueAnswer
+                answer.trueAnswer === answer.myAnswer
                   ? "card-result__answer-title_true"
                   : "card-result__answer-title_false"
               }`}
             >{`${
               answer.trueAnswer
-                ? constants.cardResult.trueAnswerTitle
-                : constants.cardResult.falseAnswerTitle
+                ? answer.trueAnswer === answer.myAnswer
+                  ? staticPanelData.youAreRightText + staticPanelData.trueAnswerText
+                  : staticPanelData.youAreWrongText + staticPanelData.trueAnswerText
+                : answer.trueAnswer === answer.myAnswer
+                  ? staticPanelData.youAreRightText + staticPanelData.falseAnswerText
+                  : staticPanelData.youAreWrongText + staticPanelData.falseAnswerText
             }`}</span>
             <div className="card-result__progress-line">
-              <div className="card-result__answer-line card-result__answer-line_true" style={{width: `${answer.truePercent}%`}}>
+              <div
+                className="card-result__answer-line card-result__answer-line_true"
+                style={{ width: `${answer.truePercent}%` }}
+              >
                 <span className="card-result__answer-line-percent">{`${answer.truePercent}%`}</span>
               </div>
-              <div className="card-result__answer-line card-result__answer-line_false" style={{width: `${100 - answer.truePercent}%`}}>
-                <span className="card-result__answer-line-percent">{`${100 - answer.truePercent}%`}</span>
+              <div
+                className="card-result__answer-line card-result__answer-line_false"
+                style={{ width: `${100 - answer.truePercent}%` }}
+              >
+                <span className="card-result__answer-line-percent">{`${
+                  100 - answer.truePercent
+                }%`}</span>
               </div>
             </div>
             <ul className="card-result__another-player-cells">
@@ -65,10 +79,10 @@ const CardResult = ({
             <button
               className="card-result__button"
               onClick={() => {
-                setActivePanel('card');
+                setActivePanel("card");
               }}
             >
-              {constants.cardResult.buttonText}
+              {staticPanelData.buttonText}
             </button>
           </div>
         </SwipeCard>

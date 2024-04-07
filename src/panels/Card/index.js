@@ -16,7 +16,7 @@ const Card = ({ id, cardData, setActivePanel, currentCardNumder }) => {
       </PanelHeader>
 
       <Div className="card__container">
-        <SwipeCard actionLeft={() => {setActivePanel("card_result");}} actionRight={() => {setActivePanel("card_result");}}>
+        <SwipeCard actionLeft={() => {setActivePanel(6, false);}} actionRight={() => {setActivePanel(6, true);}}>
           <div className="card__content">
             <span className="card__counter">{`${currentCardNumder}/${constants.card.cardData.length}`}</span>
             <img
@@ -30,7 +30,7 @@ const Card = ({ id, cardData, setActivePanel, currentCardNumder }) => {
                 className="card__button card__button_red"
                 onClick={() => {
                   api.checkQuestion(1);
-                  setActivePanel("card_result");
+                  setActivePanel(6, false);
                 }}
               >
                 {constants.card.buttonsText.false}
@@ -39,7 +39,7 @@ const Card = ({ id, cardData, setActivePanel, currentCardNumder }) => {
                 className="card__button card__button_green"
                 onClick={() => {
                   api.checkQuestion(1);
-                  setActivePanel("card_result");
+                  setActivePanel(6, true);
                 }}
               >
                 {constants.card.buttonsText.true}
