@@ -4,7 +4,7 @@ import { constants } from "../../utils/constants";
 import { Div, Panel, PanelHeader } from "@vkontakte/vkui";
 import "./style.css";
 import { api } from "../../utils/Api";
-const Card = ({ id, cardData, setActivePanel, currentCardNumder }) => {
+const Card = ({ id, cardData, giveAnswerToQuestion, currentCardNumder }) => {
   return (
     <Panel id={id} className="card" separator={false}>
       <PanelHeader
@@ -16,9 +16,18 @@ const Card = ({ id, cardData, setActivePanel, currentCardNumder }) => {
       </PanelHeader>
 
       <Div className="card__container">
-        <SwipeCard actionLeft={() => {setActivePanel(6, false);}} actionRight={() => {setActivePanel(6, true);}}>
+        <SwipeCard
+          actionLeft={() => {
+            giveAnswerToQuestion(cardData.questionNumber, false);
+          }}
+          actionRight={() => {
+            giveAnswerToQuestion(cardData.questionNumber, true);
+          }}
+        >
           <div className="card__content">
-            <span className="card__counter">{`${currentCardNumder}/${constants.card.cardData.length}`}</span>
+            <span className="card__counter">{`${currentCardNumder + 1}/${
+              constants.card.cardData.length
+            }`}</span>
             <img
               className="card__img"
               src={`./img/` + `${cardData.img}`}
@@ -29,8 +38,7 @@ const Card = ({ id, cardData, setActivePanel, currentCardNumder }) => {
               <button
                 className="card__button card__button_red"
                 onClick={() => {
-                  api.checkQuestion(1);
-                  setActivePanel(6, false);
+                  giveAnswerToQuestion(cardData.questionNumber, false);
                 }}
               >
                 {constants.card.buttonsText.false}
@@ -38,8 +46,7 @@ const Card = ({ id, cardData, setActivePanel, currentCardNumder }) => {
               <button
                 className="card__button card__button_green"
                 onClick={() => {
-                  api.checkQuestion(1);
-                  setActivePanel(6, true);
+                  giveAnswerToQuestion(cardData.questionNumber, true);
                 }}
               >
                 {constants.card.buttonsText.true}

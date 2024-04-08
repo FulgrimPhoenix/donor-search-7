@@ -57,8 +57,7 @@ export const constants = {
         img: "1_ishy_donora.png",
         true_answer: false,
         true_answer_text: "это миф",
-        yes: "yes",
-        no: "no",
+        questionNumber: 0,
       },
       {
         question: "В России достаточно доноров",
@@ -67,8 +66,7 @@ export const constants = {
         img: "2_idu_sdavat.png",
         true_answer: false,
         true_answer_text: "это миф",
-        yes: "yes",
-        no: "no",
+        questionNumber: 1,
       },
       {
         question: "Донором крови может стать каждый",
@@ -77,8 +75,7 @@ export const constants = {
         img: "3_odnoy_krovi.png",
         true_answer: false,
         true_answer_text: "это миф",
-        yes: "yes",
-        no: "no",
+        questionNumber: 2,
       },
       {
         question: "От регулярной сдачи крови полнеют",
@@ -87,8 +84,7 @@ export const constants = {
         img: "4_shok.png",
         true_answer: false,
         true_answer_text: "это миф",
-        yes: "yes",
-        no: "no",
+        questionNumber: 3,
       },
       {
         question: "Человек с татуировкой не может быть донором",
@@ -97,8 +93,7 @@ export const constants = {
         img: "5_otvod.png",
         true_answer: false,
         true_answer_text: "это миф",
-        yes: "yes",
-        no: "no",
+        questionNumber: 4,
       },
       {
         question: "Донорство крови полезно для здоровья",
@@ -107,8 +102,7 @@ export const constants = {
         img: "6_kruto.png",
         true_answer: true,
         true_answer_text: "это факт",
-        yes: "yes",
-        no: "no",
+        questionNumber: 5,
       },
       {
         question: "Одна сдача цельной крови спасает три жизни",
@@ -117,8 +111,7 @@ export const constants = {
         img: "7_superhero.png",
         true_answer: true,
         true_answer_text: "это факт",
-        yes: "yes",
-        no: "no",
+        questionNumber: 6,
       },
       {
         question: "Перед сдачей крови можно сытно покушать",
@@ -127,8 +120,7 @@ export const constants = {
         img: "8_bonus_pechenie.png",
         true_answer: true,
         true_answer_text: "это факт",
-        yes: "yes",
-        no: "no",
+        questionNumber: 7,
       },
       {
         question:
@@ -138,8 +130,7 @@ export const constants = {
         img: "9_blagodary.png",
         true_answer: true,
         true_answer_text: "это факт",
-        yes: "yes",
-        no: "no",
+        questionNumber: 8,
       },
       {
         question:
@@ -149,8 +140,7 @@ export const constants = {
         img: "10_nu_bivaet.png",
         true_answer: true,
         true_answer_text: "это факт",
-        yes: "yes",
-        no: "no",
+        questionNumber: 9,
       },
     ],
   },
