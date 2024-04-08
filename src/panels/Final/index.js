@@ -17,6 +17,7 @@ import R0_4 from '../../img/0_4.svg'
 import R5_8 from '../../img/5_8.svg'
 import R9_10 from '../../img/9_10.svg'
 import pgrants from '../../img/pgrants_logo_gp-horizontal_dark.png'
+import { constants } from '../../utils/constants'
 // import Stories from './stories'
 // import Post from './post'
 
@@ -58,8 +59,7 @@ const Final = ({correctAnswers, id}) => {
 			</PanelHeader>
 			<Div className='centerF'>
 				<span className='final_title'>
-					Ты {/*props.fetchedUser.sex*/ 1 === 1 ? 'разгадала' : 'разгадал'} {lengthT} {`мифов`/*props.declOfNum(lengthT, ['миф', 'мифа', 'мифов'])*/} и<br />
-					{/*props.fetchedUser.sex*/ 1 === 1 ? 'заслужила' : 'заслужил'} звание!
+					{constants.final.resultText(correctAnswers, 2)}
 				</span>
 				<div className='avatar_block'>
 					<img

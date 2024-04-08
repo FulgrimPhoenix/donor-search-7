@@ -88,7 +88,7 @@ const CardResult = ({
             <button
               className="card-result__button"
               onClick={() => {
-                currentQuestion < sequenceOfQuestions.length - 1
+                currentQuestion < sequenceOfQuestions.length
                   ? setActivePanel("card")
                   : setActivePanel("final");
               }}

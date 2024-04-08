@@ -46,7 +46,7 @@ export const constants = {
     },
     buttonsText: {
       true: "Верю",
-      false: "Не верю"
+      false: "Не верю",
     },
     length: 10,
     cardData: [
@@ -150,6 +150,27 @@ export const constants = {
     falseAnswerText: "это миф",
     youAreWrongText: "Ой нет... ",
     youAreRightText: "Ты прав, ",
-    buttonText: "Дальше"
-  }
+    buttonText: "Дальше",
+  },
+  final: {
+    resultText: (correctAnswers, sex, style) => {
+      let wordForm = "";
+      if (correctAnswers === 1) {
+        wordForm = "миф";
+      } else if (correctAnswers < 5 && correctAnswers !== 0) {
+        wordForm = "мифа";
+      } else {
+        wordForm = "мифов";
+      }
+      return (
+        <p className={`${style}`}>
+          {`Ты ${
+            sex === 1 ? "разгадала" : "разгадал"
+          } ${correctAnswers} ${wordForm} и`}
+          <br />
+          {`${sex === 1 ? "заслужила" : "заслужил"} звание!`}
+        </p>
+      );
+    },
+  },
 };
