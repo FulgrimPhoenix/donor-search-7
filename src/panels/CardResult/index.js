@@ -7,7 +7,8 @@ const CardResult = ({
   answer,
   staticPanelData,
   setActivePanel,
-  currentCardNumder,
+  sequenceOfQuestions,
+  currentQuestion,
 }) => {
   const staticData = constants.cardResult;
 
@@ -23,10 +24,14 @@ const CardResult = ({
       <Div className="card-result__container">
         <SwipeCard
           actionLeft={() => {
-            setActivePanel("card");
+            currentQuestion < sequenceOfQuestions.length
+              ? setActivePanel("card")
+              : setActivePanel("final");
           }}
           actionRight={() => {
-            setActivePanel("card");
+            currentQuestion < sequenceOfQuestions.length
+              ? setActivePanel("card")
+              : setActivePanel("final");
           }}
         >
           <div className="card-result__content">
@@ -39,11 +44,15 @@ const CardResult = ({
             >{`${
               answer.trueAnswer
                 ? answer.trueAnswer === answer.myAnswer
-                  ? staticPanelData.youAreRightText + staticPanelData.trueAnswerText
-                  : staticPanelData.youAreWrongText + staticPanelData.trueAnswerText
+                  ? staticPanelData.youAreRightText +
+                    staticPanelData.trueAnswerText
+                  : staticPanelData.youAreWrongText +
+                    staticPanelData.trueAnswerText
                 : answer.trueAnswer === answer.myAnswer
-                  ? staticPanelData.youAreRightText + staticPanelData.falseAnswerText
-                  : staticPanelData.youAreWrongText + staticPanelData.falseAnswerText
+                ? staticPanelData.youAreRightText +
+                  staticPanelData.falseAnswerText
+                : staticPanelData.youAreWrongText +
+                  staticPanelData.falseAnswerText
             }`}</span>
             <div className="card-result__progress-line">
               <div
@@ -79,7 +88,9 @@ const CardResult = ({
             <button
               className="card-result__button"
               onClick={() => {
-                setActivePanel("card");
+                currentQuestion < sequenceOfQuestions.length - 1
+                  ? setActivePanel("card")
+                  : setActivePanel("final");
               }}
             >
               {staticPanelData.buttonText}

@@ -32,6 +32,7 @@ const App = (props) => {
     generateRandomSequenceOfQuestions({ lengthOfSequence: 10 })
   );
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [correctAnswers, setCorrectAnswers] = useState(0);
 
   useEffect(() => {
     console.log(sequenceOfQuestions);
@@ -58,6 +59,7 @@ const App = (props) => {
       .checkQuestion(questionNumber, answer)
       .then(async (res) => {
         let usersIdString = "";
+        const question = constants.card.cardData[questionNumber];
         res.ava_uri.forEach((userData) => {
           usersIdString = usersIdString + userData.id_user + ",";
         });
@@ -66,15 +68,18 @@ const App = (props) => {
         });
         setAnswerResult({
           ...answerResult,
-          trueAnswer: constants.card.cardData[questionNumber].true_answer,
-          answerText: constants.card.cardData[questionNumber].answer,
+          trueAnswer: question.true_answer,
+          answerText: question.answer,
           myAnswer: answer,
           truePercent: res.per,
           anotherPlayerAvatars: anotherPlayerAvatars,
         });
+
+        answer === question.true_answer
+          ? setCorrectAnswers(correctAnswers + 1)
+          : "";
         setCurrentQuestion(currentQuestion + 1);
-      })
-      .then(() => {
+        console.log(currentQuestion < sequenceOfQuestions.length);
         if (currentQuestion < sequenceOfQuestions.length) {
           setActivePanel("card_result");
         } else {
@@ -100,7 +105,7 @@ const App = (props) => {
       {/*  <Loader key="loading" id="loading" /> на случай инициализирующего запроса к апи*/}
       <Start_1 key="start_1" id="start_1" setActivePanel={setActivePanel} />
       <Manual key="manual" id="manual" setActivePanel={setActivePanel} />
-      <Final id="final" />
+      <Final id="final" correctAnswers={correctAnswers} />
       {/* <Result id="result" {...propsPanels} /> */}
       <Card
         id="card"
@@ -110,6 +115,8 @@ const App = (props) => {
       />
       <CardResult
         id="card_result"
+        currentQuestion={currentQuestion}
+        sequenceOfQuestions={sequenceOfQuestions}
         setActivePanel={setActivePanel}
         staticPanelData={constants.cardResult}
         answer={answerResult}
