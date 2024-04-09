@@ -10,3 +10,11 @@ export function getUsersAvatars({ ids, options }) {
     })
     .catch((err) => console.log(err));
 }
+
+export function joinToGroup() {
+  bridge.send("VKWebAppJoinGroup", { group_id: 194506147 }).then((res) => {
+    if (res.result) {
+      document.getElementById("final__button").classList.add("disable");
+    }
+  });
+}

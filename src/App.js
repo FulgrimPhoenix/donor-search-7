@@ -78,15 +78,18 @@ const App = (props) => {
         answer === question.true_answer
           ? setCorrectAnswers(correctAnswers + 1)
           : "";
-        setCurrentQuestion(currentQuestion + 1);
-        console.log(currentQuestion < sequenceOfQuestions.length);
-        if (currentQuestion < sequenceOfQuestions.length) {
-          setActivePanel("card_result");
-        } else {
-          setActivePanel("final");
-        }
+
+        setActivePanel("card_result");
       })
       .catch((err) => console.log(err));
+  }
+
+  function setNextQuestion() {
+    setCurrentQuestion(currentQuestion + 1);
+
+    currentQuestion < sequenceOfQuestions.length - 1
+      ? setActivePanel("card")
+      : setActivePanel("final");
   }
 
   const goBack = () => {
@@ -115,9 +118,7 @@ const App = (props) => {
       />
       <CardResult
         id="card_result"
-        currentQuestion={currentQuestion}
-        sequenceOfQuestions={sequenceOfQuestions}
-        setActivePanel={setActivePanel}
+        setNextQuestion={setNextQuestion}
         staticPanelData={constants.cardResult}
         answer={answerResult}
       />

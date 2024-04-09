@@ -27,8 +27,8 @@
 
 .card__img {
   width: 50%;
-  min-width: 250px;
-  max-width: 350px;
+  min-width: 200px;
+  max-width: 300px;
   margin: 30px auto 0;
 }
 

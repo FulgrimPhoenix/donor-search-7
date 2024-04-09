@@ -1,17 +1,12 @@
 import { SwipeCard } from "../../component";
-import { constants } from "../../utils/constants";
 import { Div, Panel, PanelHeader } from "@vkontakte/vkui";
 import "./style.css";
 const CardResult = ({
   id,
   answer,
   staticPanelData,
-  setActivePanel,
-  sequenceOfQuestions,
-  currentQuestion,
+  setNextQuestion,
 }) => {
-  const staticData = constants.cardResult;
-
   return (
     <Panel id={id} className="card-result" separator={false}>
       <PanelHeader
@@ -24,14 +19,10 @@ const CardResult = ({
       <Div className="card-result__container">
         <SwipeCard
           actionLeft={() => {
-            currentQuestion < sequenceOfQuestions.length
-              ? setActivePanel("card")
-              : setActivePanel("final");
+            setNextQuestion()
           }}
           actionRight={() => {
-            currentQuestion < sequenceOfQuestions.length
-              ? setActivePanel("card")
-              : setActivePanel("final");
+            setNextQuestion()
           }}
         >
           <div className="card-result__content">
@@ -88,9 +79,7 @@ const CardResult = ({
             <button
               className="card-result__button"
               onClick={() => {
-                currentQuestion < sequenceOfQuestions.length
-                  ? setActivePanel("card")
-                  : setActivePanel("final");
+                setNextQuestion()
               }}
             >
               {staticPanelData.buttonText}
