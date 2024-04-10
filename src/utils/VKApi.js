@@ -1,5 +1,9 @@
 import bridge from "@vkontakte/vk-bridge";
 
+export function getMyUserInfo() {
+  return bridge.send("VKWebAppGetUserInfo");
+}
+
 export function getUsersAvatars({ ids, options }) {
   return bridge
     .send("VKWebAppGetUserInfo", {
@@ -12,9 +16,12 @@ export function getUsersAvatars({ ids, options }) {
 }
 
 export function joinToGroup() {
-  bridge.send("VKWebAppJoinGroup", { group_id: 194506147 }).then((res) => {
-    if (res.result) {
-      document.getElementById("final__button").classList.add("disable");
-    }
-  });
+  bridge
+    .send("VKWebAppJoinGroup", { group_id: 194506147 })
+    .then((res) => {
+      if (res.result) {
+        document.getElementById("final__button").classList.add("disable");
+      }
+    })
+    .catch((err) => console.log("пользователь не подписался:", err));
 }

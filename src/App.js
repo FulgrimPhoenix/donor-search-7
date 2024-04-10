@@ -15,7 +15,7 @@ import { constants } from "./utils/constants";
 import { Avatar, ModalPage, ModalRoot, Snackbar, View } from "@vkontakte/vkui";
 import CardResult from "./panels/CardResult";
 import { api } from "./utils/Api";
-import { getUsersAvatars } from "./utils/VKApi";
+import { getMyUserInfo, getUsersAvatars } from "./utils/VKApi";
 
 const App = (props) => {
   const url = "https://dendonora2020.donorsearch.org/backendD";
@@ -27,6 +27,7 @@ const App = (props) => {
   const [infoUser, setInfoUser] = useState({ first: true, data: null }); // hardcode
   const [popout, setPopout] = useState(null);
   const [activeModal, setActiveModal] = useState(null);
+  const [userInfo, setUserInfo] = useState({});
   const [answerResult, setAnswerResult] = useState({});
   const [sequenceOfQuestions, setSequenceOfQuestions] = useState(
     generateRandomSequenceOfQuestions({ lengthOfSequence: 10 })
@@ -35,7 +36,10 @@ const App = (props) => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
 
   useEffect(() => {
-    console.log(sequenceOfQuestions);
+    getMyUserInfo().then((res) => {
+      setUserInfo(res);
+      console.log(userInfo);
+    });
   }, []);
 
   useEffect(() => {
@@ -74,7 +78,7 @@ const App = (props) => {
           truePercent: res.per,
           anotherPlayerAvatars: anotherPlayerAvatars,
         });
-
+        console.log(userInfo);
         answer === question.true_answer
           ? setCorrectAnswers(correctAnswers + 1)
           : "";
@@ -108,7 +112,7 @@ const App = (props) => {
       {/*  <Loader key="loading" id="loading" /> на случай инициализирующего запроса к апи*/}
       <Start_1 key="start_1" id="start_1" setActivePanel={setActivePanel} />
       <Manual key="manual" id="manual" setActivePanel={setActivePanel} />
-      <Final id="final" correctAnswers={correctAnswers} />
+      <Final id="final" correctAnswers={correctAnswers} userInfo={userInfo} />
       {/* <Result id="result" {...propsPanels} /> */}
       <Card
         id="card"
