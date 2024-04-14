@@ -17,6 +17,11 @@
 .env.development.local
 .env.test.local
 .env.production.local
+ca.crt
+ca.key
+cert.crt
+cert.key
+build.zip
 
 npm-debug.log*
 yarn-debug.log*
