@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "set HTTPS=true&&set SSL_CRT_FILE=E:/Coding/donor-search-7/cert.crt&&set SSL_KEY_FILE=E:/Coding/donor-search-7/cert.key&&react-scripts start",
+    "start": "set HTTPS=true&&set SSL_CRT_FILE=D:/Coding/donor-search-7/cert.crt&&set SSL_KEY_FILE=D:/Coding/donor-search-7/cert.key&&react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "vk-miniapps-deploy",
-    "tunnel": "vk-tunnel --insecure=1 --http-protocol=https --ws-protocol=wss --host=0.0.0.0 --port=3000"},
+    "tunnel": "vk-tunnel --insecure=1 --http-protocol=https --ws-protocol=wss --host=0.0.0.0 --port=3000"
+  },
+  "homepage": "./",
   "keywords": [],
   "author": "",
   "license": "MIT",
@@ -19,7 +21,7 @@
   "dependencies": {
     "@vkontakte/icons": "^2.105.0",
     "@vkontakte/vk-bridge": "^2.14.1",
-    "@vkontakte/vk-miniapps-deploy": "0.1.7",
+    "@vkontakte/vk-miniapps-deploy": "^0.1.7",
     "@vkontakte/vkui": "^6.0.1",
     "axios": "^1.6.8",
     "babel-eslint": "^10.1.0",
