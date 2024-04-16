@@ -1,9 +1,7 @@
-import a_q from "../Q&A.json";
 import { SwipeCard } from "../../component";
 import { constants } from "../../utils/constants";
 import { Div, Panel, PanelHeader } from "@vkontakte/vkui";
 import "./style.css";
-import { api } from "../../utils/Api";
 const Card = ({ id, cardData, giveAnswerToQuestion, currentCardNumder }) => {
   return (
     <Panel id={id} className="card" separator={false}>

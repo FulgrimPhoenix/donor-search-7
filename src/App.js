@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
 import bridge from "@vkontakte/vk-bridge";
-// import View from '@vkontakte/vkui/dist/components/View/View'
 import "@vkontakte/vkui/dist/vkui.css";
-// import ModalPage from '@vkontakte/vkui/dist/components/ModalPage/ModalPage'
-// import ModalRoot from '@vkontakte/vkui/dist/components/ModalRoot/ModalRoot'
-// import Icon28CancelCircleOutline from '@vkontakte/icons/dist/28/cancel_circle_outline'
-// import Icon28SmileOutline from '@vkontakte/icons/dist/28/smile_outline';
-// import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar'
-// import Snackbar from '@vkontakte/vkui/dist/components/Snackbar/Snackbar'
 import "./app.css";
 
 import { Manual, Loader, Start_1, Final, Result, Card } from "./panels";
@@ -20,13 +13,8 @@ import { getMyUserInfo, getUsersAvatars } from "./utils/VKApi";
 const App = (props) => {
   const url = "https://dendonora2020.donorsearch.org/backendD";
 
-  const [snackbar, setSnackbar] = useState(null);
   const [activePanel, setActivePanel] = useState("start_1");
   const [history, setHistory] = useState(["final"]);
-  const [fetchedUser, setUser] = useState(constants.myUserInfo); // hardcode
-  const [infoUser, setInfoUser] = useState({ first: true, data: null }); // hardcode
-  const [popout, setPopout] = useState(null);
-  const [activeModal, setActiveModal] = useState(null);
   const [userInfo, setUserInfo] = useState({});
   const [answerResult, setAnswerResult] = useState({});
   const [sequenceOfQuestions, setSequenceOfQuestions] = useState(
@@ -62,6 +50,7 @@ const App = (props) => {
     api
       .checkQuestion(questionNumber, answer)
       .then(async (res) => {
+        console.log(4444);
         let usersIdString = "";
         const question = constants.card.cardData[questionNumber];
         res.ava_uri.forEach((userData) => {
@@ -70,6 +59,7 @@ const App = (props) => {
         const anotherPlayerAvatars = await getUsersAvatars({
           ids: usersIdString,
         });
+        console.log(2, anotherPlayerAvatars);
         setAnswerResult({
           ...answerResult,
           trueAnswer: question.true_answer,
@@ -82,8 +72,9 @@ const App = (props) => {
         answer === question.true_answer
           ? setCorrectAnswers(correctAnswers + 1)
           : "";
-
+        console.log(5555);
         setActivePanel("card_result");
+        console.log(6666);
       })
       .catch((err) => console.log(err));
   }
@@ -105,15 +96,11 @@ const App = (props) => {
       activePanel={activePanel}
       history={history}
       onSwipeBack={goBack}
-      // popout={popout} Разобраться с параметром!!!
-      // modal={modal} Разобраться с параметром!!!
       className="background"
     >
-      {/*  <Loader key="loading" id="loading" /> на случай инициализирующего запроса к апи*/}
       <Start_1 key="start_1" id="start_1" setActivePanel={setActivePanel} />
       <Manual key="manual" id="manual" setActivePanel={setActivePanel} />
       <Final id="final" correctAnswers={correctAnswers} userInfo={userInfo} />
-      {/* <Result id="result" {...propsPanels} /> */}
       <Card
         id="card"
         cardData={constants.card.cardData[sequenceOfQuestions[currentQuestion]]}
